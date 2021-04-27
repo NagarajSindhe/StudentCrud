@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Student Portal Manager</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+h1 {
+	color: Maroon;
+	font-family: verdana;
+	font-size: 300%;
+	background-color: powderblue;
+}
+
+h2 {
+	color: red;
+	font-size: 160%;
+}
+</style>
+</head>
+<body>
+	<div align="center">
+
+		<div class="panel-body">
+			<h1 class="panel panel-primary">Student List</h1>
+			<h2 align="left">
+				<a href="/new">Add New Student</a>
+			</h2>
+		</div>
+
+		<table border="1" cellpadding="10" class="table table-striped">
+			<thead class="dark">
+				<tr>
+					<th>ID</th>
+					<th>Student Name</th>
+					<th>Age</th>
+					<th>Class</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="student : ${listStudents}">
+					<td th:text="${student.id}">Product ID</td>
+					<td th:text="${student.studentName}">Name</td>
+					<td th:text="${student.age}">Brand</td>
+					<td th:text="${student.classtsd}">Made in</td>
+					<td><a th:href="@{/edit/{id}(id=${student.id})}">Edit</a></td>
+					<td><a th:href="@{/delete/{id}(id=${student.id})}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</body>
+</html>
