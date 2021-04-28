@@ -45,10 +45,10 @@ h2 {
 			</thead>
 			<tbody>
 				<tr th:each="student : ${listStudents}">
-					<td th:text="${student.id}">Product ID</td>
-					<td th:text="${student.studentName}">Name</td>
-					<td th:text="${student.age}">Brand</td>
-					<td th:text="${student.classtsd}">Made in</td>
+					<td th:text="${student.id}"></td>
+					<td th:text="${student.studentName}"></td>
+					<td th:text="${student.age}"></td>
+					<td th:text="${student.classtsd}"></td>
 					<td><a th:href="@{/edit/{id}(id=${student.id})}">Edit</a></td>
 					<td><a th:href="@{/delete/{id}(id=${student.id})}">Delete</a>
 					</td>

@@ -29,7 +29,7 @@ public class StudentCOntroller {
 	}
 
 	@RequestMapping("/new")
-	public String showNewProductPage(Model model) {
+	public String showNewStudentPage(Model model) {
 		Student student = new Student();
 		model.addAttribute("student", student);
 
@@ -37,14 +37,14 @@ public class StudentCOntroller {
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveProduct(@ModelAttribute("product") Student student) {
+	public String saveStudent(@ModelAttribute("product") Student student) {
 		studentService.addStudent(student);
 
 		return "redirect:/";
 	}
 	
 	@RequestMapping("/edit/{id}")
-	public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
+	public ModelAndView showEditStudentPage(@PathVariable(name = "id") int id) {
 	    ModelAndView mav = new ModelAndView("updateStudent");
 	    Student student = studentService.getStudent(id);
 	    mav.addObject("student", student);	
@@ -53,7 +53,7 @@ public class StudentCOntroller {
 	}
 	
 	@RequestMapping("/delete/{id}")
-	public String deleteProduct(@PathVariable(name = "id") int id) {
+	public String deleteStudent(@PathVariable(name = "id") int id) {
 		studentService.deleteStudent(id);
 	    return "redirect:/";       
 	}
